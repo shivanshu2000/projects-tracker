@@ -2,6 +2,9 @@
   <form>
     <div class="error" v-if="error">
       <p>{{ error }}</p>
+      <span style="color:white" @click="error = ''" class="material-icons">
+        clear
+      </span>
     </div>
     <label :class="{ grey: !showButton }">Title</label>
     <input
@@ -18,6 +21,7 @@
     ></textarea>
     <button
       class="form__button"
+      style="cursor:pointer"
       v-if="!editMode"
       @click.prevent="handleSubmit"
       :class="{ show__form__button: showButton }"
@@ -28,6 +32,7 @@
       @click.prevent="editProject"
       class="form__button"
       v-if="editMode"
+      style="cursor:pointer"
       :class="{ show__form__button: showButton }"
     >
       Edit project
@@ -107,6 +112,12 @@ export default {
   color: white;
   font-size: 16px;
   font-weight: bold;
+  border-radius: 15px;
+  padding: 0.5rem 1.2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
 form {

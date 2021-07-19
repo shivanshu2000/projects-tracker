@@ -1,7 +1,9 @@
 <template>
   <div v-if="projects.length">
-    <div v-for="project in projects" :key="project.id">
+    <div class="list__container">
       <Project
+        v-for="project in projects"
+        :key="project.id"
         @delete-project="deleteProject"
         @change-status="changeStatus"
         @edit-project="editProject"
@@ -135,7 +137,7 @@ export default {
   padding: 3px 7px;
   align-items: center;
   background-color: white;
-  margin: 9px auto;
+  margin: 2rem auto;
   border-radius: 15px;
   cursor: pointer;
 }
