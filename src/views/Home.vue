@@ -1,4 +1,10 @@
 <template>
+  <div
+    style="text-align:center; font-size:16px;font-weight:bold;background:white;padding:1rem 1.5rem; border-radius:15px;margin:0 auto;width:50%;letter-spacing:3px"
+    v-if="projects.length === 0"
+  >
+    No projects. Add a new project
+  </div>
   <div v-if="projects.length">
     <div class="list__container">
       <Project
@@ -10,25 +16,25 @@
         :project="project"
       />
     </div>
-    <div>
-      <div @click="toggleVisibility" class="add__project">
-        <p>New project</p>
-        <span class="material-icons add">
-          add
-        </span>
-      </div>
-      <NewProject
-        :showButton="showForm"
-        class="form__container"
-        :class="{ show__form: showForm }"
-        :title="title"
-        :details="details"
-        :edit="editMode"
-        :id="id"
-        @add-data="addProject"
-        @edit-details="editDetails"
-      />
+  </div>
+  <div>
+    <div @click="toggleVisibility" class="add__project">
+      <p>New project</p>
+      <span class="material-icons add">
+        add
+      </span>
     </div>
+    <NewProject
+      :showButton="showForm"
+      class="form__container"
+      :class="{ show__form: showForm }"
+      :title="title"
+      :details="details"
+      :edit="editMode"
+      :id="id"
+      @add-data="addProject"
+      @edit-details="editDetails"
+    />
   </div>
 </template>
 
